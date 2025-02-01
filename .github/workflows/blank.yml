@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : Printing Name
-        run: echo "Hello World"
-      - name : Printing Goodbye
-        run : echo "Goodbye! - Done"
+        run: | 
+        echo "Hello World"
+        echo "Goodbye - Done"
+
