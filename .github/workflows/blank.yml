@@ -10,6 +10,6 @@ jobs:
     steps:
       - name : Printing Name
         run: | 
-        echo "Hello World"
-        echo "Goodbye - Done"
+          echo "Hello World"
+          echo "Goodbye - Done"
 
