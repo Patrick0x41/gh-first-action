@@ -1,5 +1,5 @@
 - uses: actions/checkout@v4
-name: Second workflow
+name: Second workflow 
 on: push
 
 jobs:
