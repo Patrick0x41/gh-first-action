@@ -23,8 +23,14 @@ jobs:
 
       - name: Run Security Audit
         run: |
-          npm audit --production --json > audit-report.json
-          if grep -q '"severity": "high"' audit-report.json || grep -q '"severity": "critical"' audit-report.json; then
+          # Run npm audit and output to JSON file
+          npm audit --omit=dev --json > audit-report.json
+
+          # Check for critical vulnerabilities
+          critical_vulnerabilities=$(jq '.advisories | to_entries | map(select(.value.severity == "critical")) | length' audit-report.json)
+          high_vulnerabilities=$(jq '.advisories | to_entries | map(select(.value.severity == "high")) | length' audit-report.json)
+
+          if [[ $critical_vulnerabilities -gt 0 ]] || [[ $high_vulnerabilities -gt 0 ]]; then
             echo "High or Critical vulnerabilities found! Stopping the workflow."
             exit 1
           else
