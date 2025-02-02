@@ -1,7 +1,11 @@
 name: Events Demo 1
 on: 
-  pull_request
-    types: opended
+  pull_request:
+   types: 
+    - opended
+    - edited 
+   workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
