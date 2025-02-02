@@ -19,7 +19,7 @@ jobs:
       - name: Building Code
   Deploy:
       runs-on: ubuntu-latest
-        steps:
+      steps:
         run: npm run build
       - name: Deploying Code
         run : echo "Deploying....."
