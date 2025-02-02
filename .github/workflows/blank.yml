@@ -1,41 +1,18 @@
-name: Second workflow
-
-on:
-  push:
-    branches:
-      - main
-
+name: Second workflow 
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Get Code
         uses: actions/checkout@v3
-
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Install Dependencies
+      - name: Install Dependencies 
         run: npm ci
-
-      - name: Run Security Audit
-        run: |
-          # Run npm audit and output to JSON file
-          npm audit --omit=dev --json > audit-report.json
-
-          # Check for critical vulnerabilities
-          critical_vulnerabilities=$(jq '.advisories | to_entries | map(select(.value.severity == "critical")) | length' audit-report.json)
-          high_vulnerabilities=$(jq '.advisories | to_entries | map(select(.value.severity == "high")) | length' audit-report.json)
-
-          if [[ $critical_vulnerabilities -gt 0 ]] || [[ $high_vulnerabilities -gt 0 ]]; then
-            echo "High or Critical vulnerabilities found! Stopping the workflow."
-            exit 1
-          else
-            echo "No critical vulnerabilities found."
-          fi
-
       - name: Run Tests
         run: npm test
+      - name: Exit code
+        run: exit exit 1
