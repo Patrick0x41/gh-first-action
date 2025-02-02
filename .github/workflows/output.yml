@@ -1,4 +1,5 @@
-name: <h1>test</h1>
+name: Second_Task
+
 on: push
 jobs:
   Int-Deploy:
