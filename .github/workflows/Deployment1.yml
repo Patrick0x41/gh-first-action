@@ -11,7 +11,7 @@ on:
       - 'dev-*'  # feat/new
     paths: '**.js'
     paths-ignore: 
-      - '.github/works'
+      - '.github/workflow/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
