@@ -9,6 +9,9 @@ on:
       - 'main'
       - 'releases/**'  # dev-new dev-this-is-new
       - 'dev-*'  # feat/new
+    paths: '**.js'
+    paths-ignore: 
+      - '.github/works'
 jobs:
   deploy:
     runs-on: ubuntu-latest
