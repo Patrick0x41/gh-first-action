@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v3
+      - name: Testing the code
         run: npm run test
-      - name: Building Code
   Deploy:
     runs-on: ubuntu-latest
     steps:
