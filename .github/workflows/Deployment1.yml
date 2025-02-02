@@ -2,7 +2,7 @@ name: Events Demo 1
 on: 
   pull_request:
    types: 
-    - opended
+    - opened
     - edited 
    workflow_dispatch:
 
