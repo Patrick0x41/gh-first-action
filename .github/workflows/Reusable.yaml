@@ -1,21 +1,28 @@
-name: Reusable Depoyment  
+name: Reusable Deployment  
 on: 
   workflow_call:
     inputs:
       artifact-name: 
-        description: the name of the deployable artifact
+        description: "The name of the deployable artifact"
         required: true
-        default: dist
-        type: string 
+        default: "dist"
+        type: string
+    secrets:
+      SECRET_TOKEN:
+        required: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
+      - name: Download Artifact
         uses: actions/download-artifact@v4
         with: 
-          name: ${{inputs.artifact-name}}
-      - name: list files
+          name: ${{ inputs.artifact-name }}
+
+      - name: List Files
         run: ls -la
-      - name: Output information
-        run: "echo deploying"
+
+      - name: Output Information
+        run: |
+          echo "Secret is set"
+          echo "SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}"
