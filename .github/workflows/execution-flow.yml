@@ -49,7 +49,7 @@ jobs:
       - name: printing env token
         run: |
           echo "Frist ${{env.PUBLIC_TOKEN}}"
-          echo "Second ${{var.PUBLIC_TOKEN}}"
+          echo "Second ${{vars.PUBLIC_TOKEN}}"
       - name: Get code
         uses: actions/checkout@v4
       - name: Cache dependencies
