@@ -44,9 +44,12 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    environment: Test
     steps:
       - name: printing env token
-        run: echo ${{env.PUBLIC_TOKEN}}
+        run: |
+          echo "Frist ${{env.PUBLIC_TOKEN}}"
+          echo "Second ${{var.PUBLIC_TOKEN}}"
       - name: Get code
         uses: actions/checkout@v4
       - name: Cache dependencies
