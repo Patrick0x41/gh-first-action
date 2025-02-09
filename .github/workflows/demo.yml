@@ -21,6 +21,8 @@ jobs:
         run: |
           echo "TEST_TOKEN: $PUBLIC_TOKEN"
           echo "TEST_TOKEN1: ${{env.PUBLIC_TOKEN}}"
+          echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN}}"
+  build:
   build:
     needs: test
     runs-on: ubuntu-latest
