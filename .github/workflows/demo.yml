@@ -21,6 +21,7 @@ jobs:
       - name: Test code
         run: |
           echo "TEST_TOKEN: $TEST_TOKEN"
+          echo "TEST_TOKEN1: ${{env.TEST_TOKEN}}"
   build:
     needs: test
     runs-on: ubuntu-latest
