@@ -10,8 +10,16 @@ on:
     secrets:
       SECRET_TOKEN:
         required: true
+    outputs:
+      result:
+        description: the result of the deployment operation
+        value: ${{jobs.deploy.outputs.outcome}}
+
 jobs:
+  
   deploy:
+    outputs:
+      outcome: $${{steps.set-result.outputs.step-result}}
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifact
@@ -26,3 +34,7 @@ jobs:
         run: |
           echo "Secret is set"
           echo "SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}"
+
+      - name: Set Result Output
+        id: set-result
+        run: echo "step-result=success" >> $GITHUB_OUTPUT

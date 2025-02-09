@@ -83,3 +83,11 @@ jobs:
         run: |
           echo "something went wrong" 
           echo "${{github}}"
+
+  print-deploy-jobs:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Print Deploy output
+      run: echo ${{needs.deploy.outputs.result}}
+  
