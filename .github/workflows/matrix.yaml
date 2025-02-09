@@ -1,0 +1,16 @@
+name: Matrix Demo
+on: push
+jobs:
+  build:
+  runs-on: ubunut-latest
+  steps:
+    - name: Get code
+      uses: actions/checkout@v4
+    - name: Install Node js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+    - name: Install Depdencies
+      run: npm ci
+    - name: Build Project
+      run: npm run build
