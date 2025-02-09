@@ -7,6 +7,7 @@ env:
   MONGO: test
 jobs:
   test:
+    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -19,7 +20,7 @@ jobs:
         run: npm run test
       - name: Test code
         run: |
-          curl "https://inovasys.free.beeceptor.com/$MONGO"
+          echo $test_token
   build:
     needs: test
     runs-on: ubuntu-latest
