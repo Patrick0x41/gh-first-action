@@ -45,6 +45,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: printing env token
+        run: echo $"{{PUBLIC_TOKEN}}"
       - name: Get code
         uses: actions/checkout@v4
       - name: Cache dependencies
