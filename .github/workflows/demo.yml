@@ -18,7 +18,7 @@ jobs:
       - name: Test code
         run: npm run test
       - name: Test code
-        run: echo "${{env.MONGO}}"
+        run: echo "${{secrets}}"
   build:
     needs: test
     runs-on: ubuntu-latest
