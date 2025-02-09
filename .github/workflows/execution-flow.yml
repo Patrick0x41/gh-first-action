@@ -31,7 +31,7 @@ jobs:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        run: return 0
+        run: npm ci
       - name: Test code
         id: run-tests
         run: npm run test
@@ -75,3 +75,12 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  report:
+    needs: [deploy,lint]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: |
+          echo "something went wrong" 
+          echo "${{github}}"
