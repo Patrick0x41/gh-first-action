@@ -7,7 +7,7 @@ env:
   MONGO: test
 jobs:
   test:
-    environment: testing
+    environment: Testing
     runs-on: ubuntu-latest
     steps:
       - name: Get code
