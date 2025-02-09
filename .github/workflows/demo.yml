@@ -19,7 +19,7 @@ jobs:
         run: npm run test
       - name: Test code
         run: |
-          echo ${{$env.SECRET_TOKEN}}
+          echo ${{env.SECRET_TOKEN}}
   build:
     needs: test
     runs-on: ubuntu-latest
