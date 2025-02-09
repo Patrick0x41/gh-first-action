@@ -6,6 +6,7 @@ on:
 env:
   MONGO: test
 jobs:
+  environment: Testing
   test:
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +21,7 @@ jobs:
       - name: Test code
         run: |
           echo "TEST_TOKEN: $PUBLIC_TOKEN"
-          echo "TEST_TOKEN1: ${{env.PUBLIC_TOKEN}}"
+          echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN}}"
           echo "TEST_TOKEN1: ${{secrets.SECRET_TOKEN}}"
   build:
     needs: test
