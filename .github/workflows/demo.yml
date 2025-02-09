@@ -21,7 +21,7 @@ jobs:
       - name: Test code
         run: |
           echo "TEST_TOKEN: $PUBLIC_TOKEN"
-          echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN}}"
+          echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN_1}}"
           echo "TEST_TOKEN1: ${{secrets.SECRET_TOKEN}}"
   build:
     needs: test
