@@ -18,7 +18,7 @@ jobs:
       - name: Test code
         run: npm run test
       - name: Test code
-        run: echo "${{secrets}}"
+        run: echo "${{secrets.SECRET_TOKEN}}"
   build:
     needs: test
     runs-on: ubuntu-latest
