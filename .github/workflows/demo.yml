@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  MONGO:test
+  MONGO: test
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,6 +17,8 @@ jobs:
         run: npm run lint
       - name: Test code
         run: npm run test
+      - name: Test code
+        run: echo "${{env.MONGO}}"
   build:
     needs: test
     runs-on: ubuntu-latest
