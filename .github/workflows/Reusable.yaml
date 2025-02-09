@@ -1,8 +1,21 @@
 name: Reusable Depoyment  
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      artifact-name: 
+        description: the name of the deployable artifact
+        required: true
+        deafult: dist
+        type: string 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Code
+        uses: actions/download-artifact@v3
+        with: 
+          name: ${{inputs.artifact-name}}
+      - name: list files
+        run: ls -la
       - name: Output information
         run: "echo deploying"
