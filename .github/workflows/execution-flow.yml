@@ -68,8 +68,7 @@ jobs:
     uses: ./.github/workflows/Reusable.yaml
     with:
       artifact-name: dist-files
-    secrets:
-      SECRET_TOKEN : ${{secrets.SECRET_TOKEN}}
+    secrets: inherit
   report:
     needs: [deploy,lint]
     if: failure()
