@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  MONGO:test
 jobs:
   test:
     runs-on: ubuntu-latest
