@@ -7,9 +7,6 @@ env:
   MONGO: test
 jobs:
   test:
-    environment: Testing
-    env:
-      TEST_TOKEN: ${{ env.TEST_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -22,8 +19,8 @@ jobs:
         run: npm run test
       - name: Test code
         run: |
-          echo "TEST_TOKEN: $TEST_TOKEN"
-          echo "TEST_TOKEN1: ${{env.TEST_TOKEN}}"
+          echo "TEST_TOKEN: $PUBLIC_TOKEN"
+          echo "TEST_TOKEN1: ${{env.PUBLIC_TOKEN}}"
   build:
     needs: test
     runs-on: ubuntu-latest
