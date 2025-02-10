@@ -1,20 +1,25 @@
 name: 'Get code & Dependencies'
-description: 'get dependinces and code'
+description: 'Get dependencies and code'
 inputs:
   caching:
-    description: "wheter to cache depednceis or not."
+    description: "Whether to cache dependencies or not."
     required: false
-    deafult : 'true'
-runas: 
+    default: 'true'
+  cache-key:
+    description: "Cache key for dependencies"
+    required: false
+
+runs:
   using: 'composite'
-  steps: 
+  steps:
     - name: Cache dependencies
-      if: inputs.caching == 'true'
+      if: ${{ inputs.caching == 'true' }}
       id: cache
       uses: actions/cache@v4
       with:
         path: node_modules
-        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ inputs.cache-key }}
+
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
       run: npm ci
