@@ -10,7 +10,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: current
-        runs: ls
+        run: ls
       - name: Load & Cache Depdenies
         uses: ./.github/actions/action.yml
         with:
