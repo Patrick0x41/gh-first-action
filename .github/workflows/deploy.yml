@@ -10,7 +10,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Load & Cache Depdenies
-        uses: /.github/actions/
+        uses: ./.github/actions/action.yml
         with:
           caching: 'false'
       - name: Lint code
