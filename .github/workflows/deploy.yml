@@ -12,7 +12,7 @@ jobs:
       - name: current test
         run: ls
       - name: Load & Cache Depdenies
-        uses: ./.github/actions/action.yml
+        uses: ./.github/actions/Cache-deps
         with:
           caching: 'false'
       - name: Lint code
