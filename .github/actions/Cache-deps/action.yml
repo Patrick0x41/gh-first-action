@@ -15,4 +15,4 @@ runs:
     - name: Cache dependencies
       if: ${{ inputs.caching == 'true' }}
     - name: "run"
-      run: ${{inputs.parameter}}
+      shell: ${{inputs.parameter}}
