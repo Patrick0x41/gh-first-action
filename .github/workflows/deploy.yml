@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: current
+      - name: current test
         run: ls
       - name: Load & Cache Depdenies
         uses: ./.github/actions/action.yml
