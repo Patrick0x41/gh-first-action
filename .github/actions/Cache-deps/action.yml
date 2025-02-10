@@ -4,8 +4,8 @@ inputs:
   caching:
     description: "Whether to cache dependencies or not."
     required: false
-    default: 'true'
-  cache-key:
+    default: 'false'
+  parameter:
     description: "Cache key for dependencies"
     required: false
 
@@ -14,13 +14,5 @@ runs:
   steps:
     - name: Cache dependencies
       if: ${{ inputs.caching == 'true' }}
-      id: cache
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ inputs.cache-key }}
-
-    - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
-      run: npm ci
-      shell: bash
+    - name: "run"
+      run: ${{inputs.parameter}}
