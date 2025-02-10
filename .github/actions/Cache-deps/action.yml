@@ -14,5 +14,6 @@ runs:
   steps:
     - name: Cache dependencies
       if: ${{ inputs.caching == 'true' }}
-    - name: "run"
-      shell: ${{inputs.parameter}}
+    - name: Run
+      run: ${{ inputs.parameter }}
+      shell: bash # or any other shell like `pwsh`, `sh`, etc.
