@@ -8,23 +8,21 @@ inputs:
   parameter:
     description: "Cache key for dependencies"
     required: false
-outputs:
-  used-cache: 'Cache was used.'
-  value: ${{ steps.get-result.outputs.cache }}  # Correct output reference
+  outputs:
+    used-cache: 'Cache was used.'
+    value: ${{steps.get-result.outputs.cache}}
 
 runs:
   using: 'composite'
   steps:
     - name: Cache dependencies
       if: ${{ inputs.caching == 'true' }}
-      uses: actions/cache@v3  # Example caching action
-
+      uses: actions/cache@v3 # or another appropriate action
     - name: Run
-      run: echo "Running command with parameter: ${{ inputs.parameter }}"
-      shell: bash
+      run: ${{ inputs.parameter }}
+      shell: bash # or any other shell like `pwsh`, `sh`, etc.
       id: get-result
-
-    - name: Get result
-      run: echo "cache=${{ inputs.parameter }}" >> $GITHUB_OUTPUT  # Corrected output setting
+    - name: get result
+      run:  |
+        echo "cache='{{inputs.parameter}}'" >> $GITHUB_OUTPUT
       shell: bash
-      id: get-result
