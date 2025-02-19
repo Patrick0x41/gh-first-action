@@ -10,7 +10,7 @@ inputs:
     required: false
   outputs:
     used-cache: 'Cache was used.'
-    value: ${{steps.get-result.outputs.parameter}}
+    value: ${{steps.get-result.outputs.cache}}
 
 runs:
   using: 'composite'
