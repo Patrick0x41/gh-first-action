@@ -18,7 +18,7 @@ jobs:
           caching : 'true'
           parameter: "ls"
       - name: echo output
-        run: echo "Parameter used ${{steps.echo-param.outputs.used-cache}}"
+        run: echo "Parameter used ${{steps.echo-param.outputs.cache}}"
       - name: Lint code
         run: npm run lint
   test:
