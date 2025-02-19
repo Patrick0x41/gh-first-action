@@ -8,9 +8,9 @@ inputs:
   parameter:
     description: "Cache key for dependencies"
     required: false
-  outputs:
-    used-cache: 'Cache was used.'
-    value: ${{steps.get-result.outputs.cache}}
+outputs:
+  used-cache: 'Cache was used.'
+  value: ${{steps.get-result.outputs.cache}}
 
 runs:
   using: 'composite'
