@@ -22,5 +22,5 @@ runs:
     - name: get result
       id: get-result
       run:  |
-        echo "cache='${{inputs.parameter}}'" >> $GITHUB_OUTPUT
+        echo "cache=${{ inputs.parameter }}" >> $GITHUB_OUTPUT
       shell: bash
