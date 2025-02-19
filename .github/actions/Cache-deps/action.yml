@@ -16,12 +16,9 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - name: Cache dependencies
-      if: ${{ inputs.caching == 'true' }}
-      uses: actions/cache@v3 # or another appropriate action
     - name: Run
       run: ${{ inputs.parameter }}
-      shell: bash # or any other shell like `pwsh`, `sh`, etc.
+      shell: bash                         #   or any other shell like `pwsh`, `sh`, etc.
     - name: get result
       id: get-result
       run:  |
