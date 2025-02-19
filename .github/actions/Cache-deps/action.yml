@@ -21,8 +21,8 @@ runs:
     - name: Run
       run: ${{ inputs.parameter }}
       shell: bash # or any other shell like `pwsh`, `sh`, etc.
-      id: get-result
     - name: get result
+      id: get-result
       run:  |
         echo "cache='{{inputs.parameter}}'" >> $GITHUB_OUTPUT
       shell: bash
