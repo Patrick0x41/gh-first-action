@@ -11,14 +11,14 @@ jobs:
         uses: actions/checkout@v4
       - name: current test
         run: ls
-        id: echo-param
       - name: Load & Cache Depdenies
+        id: echo-param
         uses: ./.github/actions/Cache-deps
         with:
           caching : 'true'
           parameter: "ls"
       - name: echo output
-        run: echo "Parameter used ${{steps.echo-param.outputs.cache}}"
+        run: echo "Parameter used ${{steps.echo-param.outputs.used-cache}}"
       - name: Lint code
         run: npm run lint
   test:
