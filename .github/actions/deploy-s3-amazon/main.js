@@ -14,8 +14,18 @@ function run()
 
     // 2) Upload Files
     const s3Uri = `s3://${bucket}`
-    
-    exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`)
+
+    exec(`aws s3 sync "${distFolder}" "${s3Uri}" --region "${bucketRegion}"`, (error, stdout, stderr) => {
+    if (error) {
+        core.notice(`Error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        core.notice(`stderr: ${stderr}`);
+        return;
+    }
+    core.notice(`stdout: ${stdout}`);
+});
     
     core.notice('Hello from my custom javascript action!');
 }
