@@ -84,5 +84,7 @@ jobs:
   information:
     runs-on: ubuntu-latest
     steps:
+     - name: Get code
+       uses: actions/checkout@v4
      - name: run custom action
-       uses: ./.github/actions/deploy-s3-amazon
+       uses: ./.github/actions/deploy-s3-amazon/
