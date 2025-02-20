@@ -85,4 +85,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: run custom action
-    uses:  ./.github/actions/deploy-s3-amazon
+       uses: ./.github/actions/deploy-s3-amazon
