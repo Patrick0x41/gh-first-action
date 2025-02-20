@@ -9,7 +9,7 @@ function run()
 {
     //  1) get some input values
     const bucket = core.getInput('bucket',{required:true}) ; 
-    const bucketRegion = core.getInput('us-east-1',{required:true});
+    const bucketRegion = core.getInput('bucket-region',{required:true});
     const distFolder = core.getInput('dist-folder',{required:true});
 
     // 2) Upload Files
